@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-brancosol text-deepblack font-sans scroll-smooth;
+  }
+}
+
+/* Custom scrollbars for a premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FCFBF7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DFBEA1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #AC5B3D;
+}
+
+/* Elegant pulse effect for loading buttons */
+@keyframes soft-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 2s infinite ease-in-out;
+}
+
+/* Custom gradient representing the 'Cromática' color from the palette */
+.bg-cromatica {
+  background: linear-gradient(135deg, #AC5B3D 0%, #DFBEA1 30%, #A6D3C4 65%, #F4CDD2 100%);
+}
