@@ -346,13 +346,13 @@ function ProductModal({ product, onClose, onAddToCart }) {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={onClose}>
-      <div className="absolute inset-0 bg-deepblack/80" />
-      <div className="relative bg-pureWhite rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-scale-in" onClick={e => e.stopPropagation()}>
-        <button onClick={onClose} className="absolute top-4 right-4 z-10 w-10 h-10 bg-pureWhite rounded-xl flex items-center justify-center hover:bg-caqui/20 transition-colors shadow-md">
+      <div className="absolute inset-0 bg-slate-100" />
+      <div className="relative bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-xl border border-slate-200 animate-scale-in" onClick={e => e.stopPropagation()}>
+        <button onClick={onClose} className="absolute top-4 right-4 z-10 w-10 h-10 bg-white rounded-xl flex items-center justify-center hover:bg-slate-100 transition-colors shadow-md">
           <X size={18} />
         </button>
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="aspect-square bg-caquiLight/50">
+          <div className="aspect-square bg-caquiLight">
             <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
           </div>
           <div className="p-6 sm:p-8 flex flex-col">
