@@ -213,18 +213,18 @@ function Header({ cartCount, onCartOpen, onAdminClick, onSearch }) {
           </div>
 
           <nav className="hidden lg:flex items-center gap-8">
-            <a href="#colecao" className="text-sm font-medium text-deepblack/70 hover:text-deepblack transition-colors">Coleção</a>
-            <a href="#sobre" className="text-sm font-medium text-deepblack/70 hover:text-deepblack transition-colors">Sobre</a>
-            <a href="#galeria" className="text-sm font-medium text-deepblack/70 hover:text-deepblack transition-colors">Galeria</a>
-            <a href="#contato" className="text-sm font-medium text-deepblack/70 hover:text-deepblack transition-colors">Contato</a>
+            <a href="#colecao" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Coleção</a>
+            <a href="#sobre" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Sobre</a>
+            <a href="#galeria" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Galeria</a>
+            <a href="#contato" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Contato</a>
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-3">
-            <button onClick={onSearch} className="p-2 hover:bg-caqui/20 rounded-xl transition-colors">
-              <Search size={20} className="text-deepblack/70" />
+            <button onClick={onSearch} className="p-2 hover:bg-white/20 rounded-xl transition-colors">
+              <Search size={20} className="text-white/70" />
             </button>
-            <button onClick={onCartOpen} className="relative p-2 hover:bg-caqui/20 rounded-xl transition-colors">
-              <ShoppingBag size={20} className="text-deepblack/70" />
+            <button onClick={onCartOpen} className="relative p-2 hover:bg-white/20 rounded-xl transition-colors">
+              <ShoppingBag size={20} className="text-white/70" />
               {cartCount > 0 && (
                 <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-terracotta text-pureWhite text-[10px] font-bold rounded-full flex items-center justify-center">
                   {cartCount > 9 ? '9+' : cartCount}
@@ -257,31 +257,30 @@ function Header({ cartCount, onCartOpen, onAdminClick, onSearch }) {
 
 function HeroSection({ settings, onAddToCart }) {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-terracotta/5 via-transparent to-terracotta/5" />
+    <section className="relative min-h-screen flex items-end overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-deepblack/70" />
       <img
         src={settings.heroImage}
         alt="Hero"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ filter: 'brightness(0.6)' }}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-deepblack/60 via-deepblack/30 to-transparent" />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full">
+      <div className="absolute inset-0 bg-gradient-to-r from-deepblack/50 via-deepblack/20 to-transparent" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full pb-12 sm:pb-20">
         <div className="max-w-lg">
-          <span className="inline-block px-4 py-1.5 bg-terracotta/80 text-pureWhite text-xs font-medium rounded-full mb-5 backdrop-blur-sm">
+          <span className="inline-block px-4 py-1.5 bg-terracotta/80 text-white text-xs font-medium rounded-full mb-4 backdrop-blur-sm">
             Nova Coleção 2026
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold text-terracotta mb-4 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold text-white mb-3 leading-tight">
             {settings.heroTitle}
           </h1>
-          <p className="text-base sm:text-lg text-white/80 mb-8 max-w-md leading-relaxed">
+          <p className="text-base sm:text-lg text-white/80 mb-6 max-w-md leading-relaxed">
             {settings.heroSubtitle}
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href="#colecao" className="inline-flex items-center gap-2 bg-terracotta hover:bg-terracottaDark text-pureWhite px-6 py-3 rounded-xl text-sm font-medium transition-all hover:shadow-lg hover:shadow-terracotta/30">
+            <a href="#colecao" className="inline-flex items-center gap-2 bg-terracotta hover:bg-terracottaDark text-white px-6 py-3 rounded-xl text-sm font-medium transition-all hover:shadow-lg hover:shadow-terracotta/30">
               Ver Coleção <ChevronRight size={18} />
             </a>
-            <a href="#sobre" className="inline-flex items-center gap-2 bg-pureWhite/10 backdrop-blur-sm border border-pureWhite/30 text-pureWhite px-6 py-3 rounded-xl text-sm font-medium transition-all hover:bg-pureWhite/20">
+            <a href="#sobre" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-xl text-sm font-medium transition-all hover:bg-white/20">
               Conhecer Mais
             </a>
           </div>
