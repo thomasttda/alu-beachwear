@@ -302,7 +302,7 @@ function HeroSection({ settings, onAddToCart }) {
 
 function ProductCard({ product, onQuickView, onAddToCart }) {
   return (
-    <div className="group bg-pureWhite rounded-2xl overflow-hidden shadow-sm border border-caqui/10 hover:shadow-lg hover:border-caqui/30 transition-all duration-300">
+    <div onClick={() => onQuickView(product)} className="cursor-pointer group bg-pureWhite rounded-2xl overflow-hidden shadow-sm border border-caqui/10 hover:shadow-lg hover:border-caqui/30 transition-all duration-300">
       <div className="relative aspect-[3/4] overflow-hidden bg-caquiLight/50">
         <img
           src={product.image}
@@ -316,14 +316,6 @@ function ProductCard({ product, onQuickView, onAddToCart }) {
               Destaque
             </span>
           )}
-        </div>
-        <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-          <button
-            onClick={() => onQuickView(product)}
-            className="w-full bg-pureWhite/95 backdrop-blur-sm text-deepblack text-sm font-medium py-2.5 rounded-xl hover:bg-pureWhite transition-all shadow-lg"
-          >
-            Adicionar ao Carrinho
-          </button>
         </div>
       </div>
       <div className="p-4">
@@ -354,9 +346,9 @@ function ProductModal({ product, onClose, onAddToCart }) {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={onClose}>
-      <div className="absolute inset-0 bg-deepblack/50 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-deepblack/80" />
       <div className="relative bg-pureWhite rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-scale-in" onClick={e => e.stopPropagation()}>
-        <button onClick={onClose} className="absolute top-4 right-4 z-10 w-10 h-10 bg-pureWhite/90 backdrop-blur-sm rounded-xl flex items-center justify-center hover:bg-caqui/20 transition-colors shadow-sm">
+        <button onClick={onClose} className="absolute top-4 right-4 z-10 w-10 h-10 bg-pureWhite rounded-xl flex items-center justify-center hover:bg-caqui/20 transition-colors shadow-md">
           <X size={18} />
         </button>
         <div className="grid grid-cols-1 md:grid-cols-2">
