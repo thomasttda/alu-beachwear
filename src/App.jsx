@@ -242,6 +242,7 @@ function Header({ cartCount, onCartOpen, onAdminClick, onSearch }) {
         </div>
       </div>
 
+      {menuOpen && (
       <div className={`lg:hidden border-t animate-fade-in ${scrolled ? 'bg-pureWhite border-caqui/20' : 'bg-deepblack/90 backdrop-blur-md border-white/10'}`}>
         <div className="px-4 py-4 space-y-3">
           <a href="#colecao" onClick={() => setMenuOpen(false)} className={`block text-sm font-medium py-2 ${scrolled ? 'text-deepblack/70' : 'text-white/80'}`}>Coleção</a>
@@ -253,6 +254,7 @@ function Header({ cartCount, onCartOpen, onAdminClick, onSearch }) {
           </button>
         </div>
       </div>
+      )}
     </header>
   );
 }
