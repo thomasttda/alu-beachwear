@@ -200,12 +200,16 @@ function Header({ cartCount, onCartOpen, onAdminClick, onSearch }) {
     return () => window.removeEventListener('scroll', handler);
   }, []);
 
+  const tc = scrolled ? 'text-deepblack/70 hover:text-deepblack' : 'text-white/80 hover:text-white';
+  const tci = scrolled ? 'text-deepblack/70' : 'text-white/70';
+  const hbg = scrolled ? 'hover:bg-caqui/20' : 'hover:bg-white/20';
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-pureWhite/95 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <button onClick={() => setMenuOpen(!menuOpen)} className="lg:hidden p-2 hover:bg-caqui/20 rounded-xl transition-colors">
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          <button onClick={() => setMenuOpen(!menuOpen)} className={`lg:hidden p-2 rounded-xl transition-colors ${hbg}`}>
+            {menuOpen ? <X size={22} className={tci} /> : <Menu size={22} className={tci} />}
           </button>
 
           <div className="flex items-center gap-2">
@@ -213,44 +217,42 @@ function Header({ cartCount, onCartOpen, onAdminClick, onSearch }) {
           </div>
 
           <nav className="hidden lg:flex items-center gap-8">
-            <a href="#colecao" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Coleção</a>
-            <a href="#sobre" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Sobre</a>
-            <a href="#galeria" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Galeria</a>
-            <a href="#contato" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Contato</a>
+            <a href="#colecao" className={`text-sm font-medium transition-colors ${tc}`}>Coleção</a>
+            <a href="#sobre" className={`text-sm font-medium transition-colors ${tc}`}>Sobre</a>
+            <a href="#galeria" className={`text-sm font-medium transition-colors ${tc}`}>Galeria</a>
+            <a href="#contato" className={`text-sm font-medium transition-colors ${tc}`}>Contato</a>
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-3">
-            <button onClick={onSearch} className="p-2 hover:bg-white/20 rounded-xl transition-colors">
-              <Search size={20} className="text-white/70" />
+            <button onClick={onSearch} className={`p-2 rounded-xl transition-colors ${hbg}`}>
+              <Search size={20} className={tci} />
             </button>
-            <button onClick={onCartOpen} className="relative p-2 hover:bg-white/20 rounded-xl transition-colors">
-              <ShoppingBag size={20} className="text-white/70" />
+            <button onClick={onCartOpen} className={`relative p-2 rounded-xl transition-colors ${hbg}`}>
+              <ShoppingBag size={20} className={tci} />
               {cartCount > 0 && (
                 <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-terracotta text-pureWhite text-[10px] font-bold rounded-full flex items-center justify-center">
                   {cartCount > 9 ? '9+' : cartCount}
                 </span>
               )}
             </button>
-            <button onClick={onAdminClick} className="hidden sm:flex text-xs text-deepblack/40 hover:text-deepblack/70 transition-colors items-center gap-1 ml-1">
+            <button onClick={onAdminClick} className={`hidden sm:flex text-xs transition-colors items-center gap-1 ml-1 ${scrolled ? 'text-deepblack/40 hover:text-deepblack/70' : 'text-white/50 hover:text-white/80'}`}>
               <Lock size={12} /> Admin
             </button>
           </div>
         </div>
       </div>
 
-      {menuOpen && (
-        <div className="lg:hidden bg-pureWhite border-t border-caqui/20 animate-fade-in">
-          <div className="px-4 py-4 space-y-3">
-            <a href="#colecao" onClick={() => setMenuOpen(false)} className="block text-sm font-medium py-2 text-deepblack/70">Coleção</a>
-            <a href="#sobre" onClick={() => setMenuOpen(false)} className="block text-sm font-medium py-2 text-deepblack/70">Sobre</a>
-            <a href="#galeria" onClick={() => setMenuOpen(false)} className="block text-sm font-medium py-2 text-deepblack/70">Galeria</a>
-            <a href="#contato" onClick={() => setMenuOpen(false)} className="block text-sm font-medium py-2 text-deepblack/70">Contato</a>
-            <button onClick={() => { setMenuOpen(false); onAdminClick(); }} className="flex items-center gap-2 text-sm text-deepblack/40 py-2">
-              <Lock size={14} /> Painel Administrativo
-            </button>
-          </div>
+      <div className={`lg:hidden border-t animate-fade-in ${scrolled ? 'bg-pureWhite border-caqui/20' : 'bg-deepblack/90 backdrop-blur-md border-white/10'}`}>
+        <div className="px-4 py-4 space-y-3">
+          <a href="#colecao" onClick={() => setMenuOpen(false)} className={`block text-sm font-medium py-2 ${scrolled ? 'text-deepblack/70' : 'text-white/80'}`}>Coleção</a>
+          <a href="#sobre" onClick={() => setMenuOpen(false)} className={`block text-sm font-medium py-2 ${scrolled ? 'text-deepblack/70' : 'text-white/80'}`}>Sobre</a>
+          <a href="#galeria" onClick={() => setMenuOpen(false)} className={`block text-sm font-medium py-2 ${scrolled ? 'text-deepblack/70' : 'text-white/80'}`}>Galeria</a>
+          <a href="#contato" onClick={() => setMenuOpen(false)} className={`block text-sm font-medium py-2 ${scrolled ? 'text-deepblack/70' : 'text-white/80'}`}>Contato</a>
+          <button onClick={() => { setMenuOpen(false); onAdminClick(); }} className={`flex items-center gap-2 text-sm py-2 ${scrolled ? 'text-deepblack/40' : 'text-white/50'}`}>
+            <Lock size={14} /> Painel Administrativo
+          </button>
         </div>
-      )}
+      </div>
     </header>
   );
 }
